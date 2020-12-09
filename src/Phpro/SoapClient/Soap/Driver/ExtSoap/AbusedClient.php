@@ -50,6 +50,7 @@ class AbusedClient extends \SoapClient
 
     public function __doRequest($request, $location, $action, $version, $oneWay = 0)
     {
+        $action = $action ? $action : "";
         $this->storedRequest = new SoapRequest($request, $location, $action, $version, (int) $oneWay);
 
         return $this->storedResponse ? $this->storedResponse->getResponse() : '';
